@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8" />
+    <title>Taller Electiva 2</title>
+    
+    
+    <%-include('./templates/header')%>
+</head>
+
+
+<body>
+    <%- include('./templates/head') %>
+    <%- include('./templates/navigation') %>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h1><font color="black">AGENDA</font></h1>
+            </div>
+            <div class="card-body">
+                <%if(tareas.size > 0){%>
+                    Hay <%=tareas.size%> tareas
+            
+                    <table class="table table-dark table-striped-columns">
+                        <thead>
+                            <th>Titulo</th>
+                            <th>Descripcion</th>
+                            <th>Fecha</th>
+                        </thead>
+                        <tbody>
+                            <%tareas.forEach(tarea =>{%>
+                                <tr>
+                                    <td><%=tarea.id%></td>
+                                    <td><%=tarea.name%></td>
+                                    <td><%=tarea.date%></td>
+                                </tr>                        
+                                <%})%>
+                        </tbody>
+                    </table>
+                <%}else{%>
+                    No hay tareas
+                <%}%>
+                <a href="insert" class="btn btn-secondary">Agregar Tarea</a>
+            </div>
+        </div>
+    </div>
+    <header
+      class="container vh-100 d-flex justify-content-center align-items-center"
+    >
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <img
+          src="/img/fazt.jpg"
+          class="w-25 m-auto animated bounceIn"
+          alt="Website Logo"
+        />
+        <h1 class="display-1 my-5 text-uppercase fw-bold">Agenda</h1>
+    <%-include('./templates/footer')%>
+</body>
+</html>

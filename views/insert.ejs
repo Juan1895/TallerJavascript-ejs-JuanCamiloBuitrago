@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible"	 content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <%- include('./templates/header')%>
+    
+</head>
+<body>
+    <%- include('./templates/head') %>  
+    <%- include('./templates/navigation') %>
+
+<div class="container vh-100 d-flex justify-content-center align-items-center">    
+    <div class="card animated flipInY bg-dark p-3 border-secondary">
+        <div class="card-header bg-dark text-white text-center">
+                <h1>Nueva tarea</h1>
+            </div>
+            <div class="card-body">
+                <form action="/" method="post">
+                    <div class="mb-3>
+                    <label for="id">Titulo</label>
+                    <input type="text" name="id" id="id" class="from-control" placeholder="Ingrese titulo" required>
+                    </div>
+                    <div class="mb-3">
+                    <label for="name">Descripcion</label>
+                    <textarea rows="10" cols="20" name="name" id="name" class="from-control" placeholder="ingrese descripcion" required></textarea>
+                    </div>
+                    <div class="mb-3>
+                        <label for="id">Fecha</label>
+                        <input type="text" name="date" id="date" readonly>
+                        </div>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+<script>
+    const date = new Date();
+    const formattedDate = `${date.getFullYear()}-${(date.getMonth()+1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`
+    document.getElementById("date").value=formattedDate
+</script>
+    
+<%-include('./templates/footer')%>
+</body>
+</html>
